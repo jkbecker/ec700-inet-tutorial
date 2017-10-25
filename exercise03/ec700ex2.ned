@@ -13,7 +13,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package exercise02;
+package exercise03;
 
 import inet.common.figures.DelegateSignalConfigurator;
 import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
@@ -22,7 +22,7 @@ import inet.physicallayer.contract.packetlevel.IRadioMedium;
 import inet.visualizer.contract.IIntegratedVisualizer;
 
 
-network Ec700ex2
+network Ec700ex3
 {
     parameters:
         string hostType = default("WirelessHost");
