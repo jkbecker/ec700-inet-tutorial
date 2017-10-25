@@ -9,12 +9,13 @@ simple HelloNode
 
 network HelloNetwork
 {
+    @display("bgb=351,169");
     submodules:
         nodeA: HelloNode {
-            @display("p=50,30");
+            @display("p=92,83");
         }
         nodeB: HelloNode {
-            @display("p=150,30");
+            @display("p=244,83");
         }
     connections:
         nodeA.out --> {  delay = 100ms; } --> nodeB.in;
