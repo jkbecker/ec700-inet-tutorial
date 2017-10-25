@@ -1,19 +1,22 @@
-simple Txc1
+package exercise01;
+
+simple HelloNode
 {
     gates:
         input in;
         output out;
 }
-//
-// Two instances (tic and toc) of Txc1 connected both ways.
-// Tic and toc will pass messages to one another.
-//
-network Tictoc1
+
+network HelloNetwork
 {
     submodules:
-        tic: Txc1;
-        toc: Txc1;
+        nodeA: HelloNode {
+            @display("p=50,30");
+        }
+        nodeB: HelloNode {
+            @display("p=150,30");
+        }
     connections:
-        tic.out --> {  delay = 100ms; } --> toc.in;
-        tic.in <-- {  delay = 100ms; } <-- toc.out;
+        nodeA.out --> {  delay = 100ms; } --> nodeB.in;
+        nodeA.in <-- {  delay = 100ms; } <-- nodeB.out;
 }
