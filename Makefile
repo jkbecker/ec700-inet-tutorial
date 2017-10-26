@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for ec700tutorial
+# OMNeT++/OMNEST Makefile for ec700-inet-tutorial
 #
 # This file was generated with the command:
 #  opp_makemake -f --deep -O out -KINET_PROJ=../inet -DINET_IMPORT -I. -I$$\(INET_PROJ\)/src -L$$\(INET_PROJ\)/out/$$\(CONFIGNAME\)/src -lINET
 #
 
 # Name of target to be created (-o option)
-TARGET = ec700tutorial$(EXE_SUFFIX)
+TARGET = ec700-inet-tutorial$(EXE_SUFFIX)
 
 # User interface (uncomment one) (-u option)
 USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LIBS)
