@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ec700tutorial</name>
+	<name>ec700-inet-tutorial</name>
 	<comment></comment>
 	<projects>
 		<project>inet</project>
