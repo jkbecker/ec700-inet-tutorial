@@ -1,33 +1,43 @@
 #include <string.h>
 #include <omnetpp.h>
+
 using namespace omnetpp;
-class HelloNode : public cSimpleModule
-{
-  protected:
-    // The following redefined virtual function holds the algorithm.
-    virtual void initialize() override;
-    virtual void handleMessage(cMessage *msg) override;
+
+/**
+ * We are defining a "HelloNode" class which inherits from OMNeT++'s own
+ * "cSimpleModule" class and overrides certain behavior.
+ */
+class HelloNode : public cSimpleModule {
+    protected:
+        // The following redefined virtual function holds our own custom logic:
+        virtual void initialize() override;
+        virtual void handleMessage(cMessage *msg) override;
 };
-// The module class needs to be registered with OMNeT++
-Define_Module(HelloNode);
-void HelloNode::initialize()
-{
-    // Initialize is called at the beginning of the simulation.
-    // To bootstrap the tic-toc-tic-toc process, one of the modules needs
-    // to send the first message. Let this be `tic'.
-    // Am I Tic or Toc?
+
+Define_Module(HelloNode); // The module class needs to be registered with OMNeT++
+
+/**
+ * Initialize is called at the beginning of the simulation.
+ * We want 'nodeA' to send the initial message:
+ */
+void HelloNode::initialize() {
+
     if (strcmp("nodeA", getName()) == 0) {
-        // create and send first message on gate "out". "tictocMsg" is an
-        // arbitrary string which will be the name of the message object.
-        cMessage *msg = new cMessage("HelloWorldMsg");
-        send(msg, "out");
+        cMessage *msg = new cMessage("Hello");  // create the message "Hello"
+        send(msg, "out");                       // send the message
     }
 }
-void HelloNode::handleMessage(cMessage *msg)
-{
-    // The handleMessage() method is called whenever a message arrives
-    // at the module. Here, we just send it to the other module, through
-    // gate `out'. Because both `tic' and `toc' does the same, the message
-    // will bounce between the two.
-    send(msg, "out"); // send out the message
+/**
+ * handleMessage is called whenever a message arrives at the module.
+ * In this simple example, the module just changes the message content
+ * and sends it back to the other module again.
+ */
+void HelloNode::handleMessage(cMessage *msg) {
+    if (strcmp("nodeA", getName()) == 0) {      // "nodeA" behavior
+        msg->setName("Hello");                  // change the name
+        send(msg, "out");                       // send the message
+    } else {                                    // "nodeB" behavior
+        msg->setName("World");                  // change the name
+        send(msg, "out");                       // send the message
+    }
 }
