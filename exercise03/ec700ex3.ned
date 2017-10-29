@@ -29,24 +29,24 @@ network Ec700ex3
         string mediumType = default("IdealRadioMedium");
 
 
-        @display("bgb=654,403,lightBlue");
+        @display("bgb=922,403,lightBlue");
     submodules:
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
-            @display("p=580,125");
+            @display("p=819,124");
         }
         configurator: IPv4NetworkConfigurator {
-            @display("p=580,200");
+            @display("p=819,199");
         }
         radioMedium: <mediumType> like IRadioMedium {
-            @display("p=580,275");
+            @display("p=819,274");
         }
         HostAlice: <hostType> like INetworkNode {
             @display("p=100,125");
         }
         HostBob: <hostType> like INetworkNode {
-            @display("p=400,125");
+            @display("p=319,274");
         }
         HostCharlie: <hostType> like INetworkNode {
-            @display("p=250,225");
+            @display("p=527,132");
         }
 }
