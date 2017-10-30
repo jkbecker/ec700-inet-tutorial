@@ -6,7 +6,7 @@
   </inputs>
   <datasets>
     <datasets name="Bob: Packets Received">
-      <items xsi:type="scave:Add" filterPattern="file(/ec700-inet-tutorial/exercise03/results/ec700ex3*.sca) AND module(Ec700ex3.HostBob.udp) AND name(rcvdPk:count)"/>
+      <items xsi:type="scave:Add" filterPattern="file(/ec700-inet-tutorial/exercise04/results/ec700ex*.sca) AND module(Ec700ex*.HostBob.udp) AND name(rcvdPk:count)"/>
       <items xsi:type="scave:BarChart" name="Packets Received by Bob">
         <properties name="Graph.Title" value="Packets Received by Bob"/>
         <properties name="Legend.Display" value="true"/>
@@ -16,7 +16,7 @@
       </items>
     </datasets>
     <datasets name="Alice+Charlie: Packets Sent">
-      <items xsi:type="scave:Add" filterPattern="file(/ec700-inet-tutorial/exercise03/results/ec700ex3*.sca) AND (module(Ec700ex3.HostAlice.udpApp[0]) OR module(Ec700ex3.HostCharlie.udpApp[0])) AND name(sentPk:count)"/>
+      <items xsi:type="scave:Add" filterPattern="file(/ec700-inet-tutorial/exercise04/results/ec700ex*.sca) AND (module(Ec700ex*.HostAlice.udpApp[0]) OR module(Ec700ex*.HostCharlie.udpApp[0])) AND name(sentPk:count)"/>
       <items xsi:type="scave:BarChart" name="Packets sent by Alice and Charlie">
         <properties name="Graph.Title" value="Packets sent by Alice and Charlie"/>
         <properties name="Legend.Display" value="true"/>
@@ -26,7 +26,7 @@
       </items>
     </datasets>
     <datasets name="Packet Errors">
-      <items xsi:type="scave:Add" filterPattern="file(/ec700-inet-tutorial/exercise03/results/ec700ex3*.sca) AND module(Ec700ex3.HostBob.wlan[0].radio) AND name(packetErrorRate:histogram:mean)"/>
+      <items xsi:type="scave:Add" filterPattern="file(/ec700-inet-tutorial/exercise04/results/ec700ex*.sca) AND module(Ec700ex*.HostBob.wlan[0].radio) AND name(packetErrorRate:histogram:mean)"/>
       <items xsi:type="scave:BarChart" name="Bob: Packet Errors">
         <properties name="Graph.Title" value="Bob: Packet Errors"/>
         <groupByFields>experiment</groupByFields>
@@ -45,6 +45,6 @@
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="CSMA Analysis" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.1"/>
+    <chartSheets name="CSMA Analysis" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.1 //@datasets/@datasets.3/@items.1/@items.1"/>
   </chartSheets>
 </scave:Analysis>
