@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
   <inputs>
     <inputs name="/ec700-inet-tutorial/exercise04/results/SimpleHiddenNode-*.vec"/>
     <inputs name="/ec700-inet-tutorial/exercise04/results/SimpleHiddenNode-*.sca"/>
   </inputs>
-  <datasets/>
+  <datasets>
+    <datasets name="throughput:vector Ec700ex4.HostBob.udpApp[0]">
+      <items xsi:type="scave:Add" filterPattern="module(Ec700ex4.HostBob.udpApp[0]) AND name(throughput:vector)" type="VECTOR"/>
+      <items xsi:type="scave:Group" name="throughput:vector Ec700ex4.HostBob.udpApp[0]">
+        <items xsi:type="scave:Apply" operation="slidingwinavg">
+          <params name="windowSize" value="10"/>
+        </items>
+        <items xsi:type="scave:LineChart" name="throughput:vector Ec700ex4.HostBob.udpApp[0]"/>
+      </items>
+    </datasets>
+  </datasets>
   <chartSheets/>
 </scave:Analysis>
